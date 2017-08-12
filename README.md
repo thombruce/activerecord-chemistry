@@ -3,7 +3,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/thombruce/activerecord-chemistry.svg)](https://circleci.com/gh/thombruce/activerecord-chemistry) [![Coveralls](https://img.shields.io/coveralls/thombruce/activerecord-chemistry.svg)](https://coveralls.io/github/thombruce/activerecord-chemistry) [![Gemnasium](https://img.shields.io/gemnasium/thombruce/activerecord-chemistry.svg)](https://gemnasium.com/github.com/thombruce/activerecord-chemistry) [![Code Climate](https://img.shields.io/codeclimate/github/thombruce/activerecord-chemistry.svg)](https://codeclimate.com/github/thombruce/activerecord-chemistry) [![Beerpay](https://beerpay.io/thombruce/activerecord-chemistry/badge.svg?style=beer)](https://beerpay.io/thombruce/activerecord-chemistry)
 
 
-Based on and inspired by [ActiveRecord::ActsAs](https://github.com/krautcomputing/active_record-acts_as). For simple multiple table inheritance, use that. ActiveRecord::Chemistry goes beyond adds more complex relationships and aims to enforce referential integrity.
+Based on and inspired by [ActiveRecord::ActsAs](https://github.com/krautcomputing/active_record-acts_as). For simple multiple table inheritance, use that. ActiveRecord::Chemistry adds more complex relationships and aims to enforce referential integrity.
 
 ## Installation
 
