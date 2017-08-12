@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'inheritance/version'
+require 'active_record/chemistry/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "inheritance"
-  spec.version       = Inheritance::VERSION
+  spec.name          = "activerecord-chemistry"
+  spec.version       = ActiveRecord::Chemistry::VERSION
   spec.authors       = ["Thom Bruce"]
   spec.email         = ["thom@thombruce.com"]
 
   spec.summary       = %q{Adds inheritance logic for Rails ActiveRecord.}
   spec.description   = %q{Adds several different inheritance patterns for use with Rails models and ActiveRecord relations.}
-  spec.homepage      = "http://github.com/thombruce/inheritance"
+  spec.homepage      = "http://github.com/thombruce/activerecord-chemistry"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
