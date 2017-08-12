@@ -39,7 +39,7 @@ GEM
     powerpack (0.1.1)
     rainbow (2.2.2)
       rake
-    rake (10.5.0)
+    rake (12.0.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -82,7 +82,7 @@ DEPENDENCIES
   bundler (~> 1.14)
   coveralls (~> 0.8)
   inheritance!
-  rake (~> 10.0)
+  rake (~> 12.0)
   rspec (~> 3)
   rubocop (~> 0.49.1)
 
