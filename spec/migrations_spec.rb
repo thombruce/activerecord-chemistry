@@ -1,5 +1,5 @@
 require 'database_helper'
-require 'active_record/chemistry'
+require 'activerecord/chemistry'
 
 class User < ActiveRecord::Base
 end

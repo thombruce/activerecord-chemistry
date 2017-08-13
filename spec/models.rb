@@ -1,6 +1,6 @@
 require_relative 'database_helper'
 
-require 'active_record/chemistry'
+require 'activerecord/chemistry'
 
 class Entity < ActiveRecord::Base
   actable # has_one [classes]
