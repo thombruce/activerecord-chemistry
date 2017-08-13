@@ -1,3 +1,5 @@
+require 'activerecord/chemistry/representable/instance_methods'
+
 module ActiveRecord
   module Chemistry
     module Representable

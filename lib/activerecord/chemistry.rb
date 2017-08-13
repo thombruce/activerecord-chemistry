@@ -1,9 +1,9 @@
 require 'active_support'
 require 'active_record'
-require 'active_record/chemistry/version'
-require 'active_record/chemistry/actable'
-require 'active_record/chemistry/extendable'
-require 'active_record/chemistry/representable'
+require 'activerecord/chemistry/version'
+require 'activerecord/chemistry/actable'
+require 'activerecord/chemistry/extendable'
+require 'activerecord/chemistry/representable'
 
 module ActiveRecord
   class Base
@@ -18,7 +18,9 @@ module ActiveRecord
       include ActiveRecord::Chemistry::Extendable::Migration::TableDefinition
       include ActiveRecord::Chemistry::Representable::Migration::TableDefinition
     end
+  end
 
+  module ConnectionAdapters
     class Table
       include ActiveRecord::Chemistry::Actable::Migration::Table
       include ActiveRecord::Chemistry::Extendable::Migration::Table

@@ -1,5 +1,5 @@
-require 'active_record/chemistry/representable/migration'
-require 'active_record/chemistry/representable/relation'
+require 'activerecord/chemistry/representable/migration'
+require 'activerecord/chemistry/representable/relation'
 
 module ActiveRecord
   module Chemistry

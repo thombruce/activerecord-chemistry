@@ -1,3 +1,5 @@
+require 'activerecord/chemistry/actable/instance_methods'
+
 module ActiveRecord
   module Chemistry
     module Actable
