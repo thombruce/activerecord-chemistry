@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'database_helper'
 require 'active_record/chemistry'
 
