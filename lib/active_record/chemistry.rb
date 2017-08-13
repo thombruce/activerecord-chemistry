@@ -7,7 +7,9 @@ require 'active_record/chemistry/representable'
 
 module ActiveRecord
   class Base
-    # include Chemistry::Relations
+    include Chemistry::Actable::Relation
+    include Chemistry::Extendable::Relation
+    include Chemistry::Representable::Relation
   end
 
   module ConnectionAdapters
