@@ -6,7 +6,7 @@ module ActiveRecord
 
         module ClassMethods
           def extendable_by(name, scope = nil, options = {})
-            belongs_to(name, scope, options)
+            belongs_to(name, scope, options.merge(dependent: :nullify))
           end
 
           def extends(name, scope = nil, options = {})

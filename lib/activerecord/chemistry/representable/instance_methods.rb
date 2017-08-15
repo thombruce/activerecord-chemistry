@@ -11,6 +11,19 @@ module ActiveRecord
         end
         protected :representable_must_be_valid
 
+        def find_by_or_keep_representable
+          if representing.new_record? && @findable = representing_model.find_by(self.representing.attributes.reject { |k| ['id', 'created_at', 'updated_at'].include? k })
+            self.representing = @findable
+            #@findable.association(representing_model.representable_reflection.name.to_sym).add_to_target(self, true)
+          end
+        end
+
+        def update_or_instantiate_representable
+          if representing.changed? && representing.send(representing_model.representable_reflection.name.to_sym).count > 1
+            self.representing = representing.dup
+          end
+        end
+
         def respond_to?(name, include_private = false, as_original_class = false)
           if as_original_class
             super(name, include_private)
