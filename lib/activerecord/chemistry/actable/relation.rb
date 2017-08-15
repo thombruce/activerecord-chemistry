@@ -15,7 +15,7 @@ module ActiveRecord
               options = scope
               scope = nil
             end
-            reflections = belongs_to(name, scope, options.merge(dependent: :destroy))
+            reflections = belongs_to(name, scope, options)
             default_scope -> { includes(name) }
             validate :actable_must_be_valid
 
@@ -28,7 +28,7 @@ module ActiveRecord
           end
 
           def actable(name, scope = nil, options = {})
-            reflections = has_one(name, scope, options)
+            reflections = has_one(name, scope, options.merge(dependent: :destroy))
             cattr_reader(:actable_reflection) { reflections.stringify_keys[name.to_s] }
           end
         end

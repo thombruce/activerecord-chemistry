@@ -39,7 +39,7 @@ module ActiveRecord
           end
 
           def representable(name, scope = nil, options = {})
-            reflections = has_many(name, scope, options)
+            reflections = has_many(name, scope, options.merge(dependent: :destroy))
             cattr_reader(:representable_reflection) { reflections.stringify_keys[name.to_s] }
           end
         end
