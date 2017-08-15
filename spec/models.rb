@@ -3,7 +3,7 @@ require_relative 'database_helper'
 require 'activerecord/chemistry'
 
 class Person < ActiveRecord::Base
-  actable
+  actable :user
 end
 
 class User < ActiveRecord::Base
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 end
 
 class PersonalName < ActiveRecord::Base
-  representable
+  representable :display_names
 end
 
 class DisplayName < ActiveRecord::Base
@@ -19,7 +19,7 @@ class DisplayName < ActiveRecord::Base
 end
 
 class Confirmable < ActiveRecord::Base
-  extends
+  extends :email
 end
 
 class Email < ActiveRecord::Base
