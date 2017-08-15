@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
 end
 
 class User < ActiveRecord::Base
-  acts_as :entity
+  acts_as :person
 end
 
 class PersonalName < ActiveRecord::Base
