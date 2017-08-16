@@ -33,7 +33,7 @@ def initialize_schema
       t.timestamps null: true
     end
     create_table :users do |t|
-      t.acts_as :entity
+      t.acts_as :person
     end
     create_table :personal_names do |t|
       t.string :appellation 
