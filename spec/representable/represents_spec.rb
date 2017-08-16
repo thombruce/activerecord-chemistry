@@ -22,4 +22,58 @@ RSpec.describe "ActiveRecord::Base subclass with #represents" do
       end
     end
   end
+
+  context 'destroy' do
+    before do
+      @display_name = create(:display_name, appellation: 'John Doe')
+      @personal_name = @display_name.representing
+    end
+
+    context 'with no other representatives' do
+      before { @display_name.destroy }
+      it 'destroys the representable object' do
+        expect(@display_name).to be_destroyed
+        expect(@personal_name).to be_destroyed
+      end
+    end
+
+    context 'with other representatives' do
+      before do
+        create(:display_name, appellation: 'John Doe')
+        @display_name.destroy
+      end
+      it 'does not destroy the representable object' do
+        expect(@display_name).to be_destroyed
+        expect(@personal_name).to_not be_destroyed
+      end
+    end
+  end
+
+  context 'update' do
+    before do
+      @display_name = create(:display_name, appellation: 'John Doe')
+      @personal_name = @display_name.representing
+    end
+
+    context 'with no other representatives' do
+      before { @display_name.update_attributes(appellation: 'Dave Jones') }
+      it 'changes the representable object' do
+        expect(@display_name.appellation).to eq('Dave Jones')
+        expect(@personal_name.appellation).to eq('Dave Jones')
+      end
+    end
+
+    context 'with other representatives' do
+      before do
+        create(:display_name, appellation: 'John Doe')
+        @display_name.update_attributes(appellation: 'Dave Jones')
+      end
+      it 'does not change the representable object' do
+        expect(@display_name.appellation).to eq('Dave Jones')
+        @personal_name.reload
+        expect(@personal_name.appellation).to_not eq('Dave Jones')
+        expect(@personal_name.appellation).to eq('John Doe')
+      end
+    end
+  end
 end
