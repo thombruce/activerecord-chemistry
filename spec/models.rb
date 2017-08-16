@@ -26,6 +26,7 @@ end
 
 class Email < ActiveRecord::Base
   extendable_by :confirmable
+  validates_format_of :address, with: /@/
 end
 
 def initialize_schema
