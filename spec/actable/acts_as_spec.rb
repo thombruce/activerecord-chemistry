@@ -22,4 +22,30 @@ RSpec.describe "ActiveRecord::Base subclass with #acts_as" do
       end
     end
   end
+
+  context 'destroy' do
+    before do
+      @user = create(:user, slug: 'username')
+      @person = @user.acting_as
+      @user.destroy
+    end
+
+    it 'destroys the actable object' do
+      expect(@user).to be_destroyed
+      expect(@person).to be_destroyed
+    end
+  end
+
+  context 'update' do
+    before do
+      @user = create(:user, slug: 'username')
+      @person = @user.acting_as
+      @user.update_attributes(slug: 'newname')
+    end
+
+    it 'changes the actable object' do
+      expect(@user.slug).to eq('newname')
+      expect(@person.slug).to eq('newname')
+    end
+  end
 end

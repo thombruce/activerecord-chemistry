@@ -15,7 +15,7 @@ module ActiveRecord
               options = scope
               scope = nil
             end
-            reflections = belongs_to(name, scope, options)
+            reflections = belongs_to(name, scope, options.merge(dependent: :destroy))
             default_scope -> { includes(name) }
             validate :actable_must_be_valid
 

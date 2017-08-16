@@ -2,7 +2,7 @@ require 'models'
 
 RSpec.describe "ActiveRecord::Base subclass with #represents" do
   before { initialize_schema }
-  
+
   context 'create' do
     let(:display_name) { create(:display_name, appellation: 'John Doe') }
     context 'without existing representable' do
