@@ -2,7 +2,19 @@ require 'models'
 
 RSpec.describe "ActiveRecord::Base subclass with #acts_as" do
   before { initialize_schema }
-  
+
+  context 'new' do
+    let(:user) { create(:user) }
+    it 'is valid with valid attributes for actable' do
+      expect(user).to be_valid
+    end
+
+    it 'is not valid with invalid actable attributes' do
+      user.slug = 2
+      expect(user).to_not be_valid
+    end
+  end
+
   context 'create' do
     let(:user) { create(:user, slug: 'username') }
     context 'without existing actable' do

@@ -3,6 +3,18 @@ require 'models'
 RSpec.describe "ActiveRecord::Base subclass with #represents" do
   before { initialize_schema }
 
+  context 'new' do
+    let(:display_name) { create(:display_name) }
+    it 'is valid with valid attributes for representable' do
+      expect(display_name).to be_valid
+    end
+
+    it 'is not valid with invalid representable attributes' do
+      display_name.appellation = 2
+      expect(display_name).to_not be_valid
+    end
+  end
+
   context 'create' do
     let(:display_name) { create(:display_name, appellation: 'John Doe') }
     context 'without existing representable' do

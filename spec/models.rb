@@ -4,6 +4,7 @@ require 'activerecord/chemistry'
 
 class Person < ActiveRecord::Base
   actable :user
+  validates_format_of :slug, with: /\A[a-z]+\z/i
 end
 
 class User < ActiveRecord::Base
@@ -12,6 +13,7 @@ end
 
 class PersonalName < ActiveRecord::Base
   representable :display_names
+  validates_format_of :appellation, with: /\A[a-z ]+\z/i
 end
 
 class DisplayName < ActiveRecord::Base
