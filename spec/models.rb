@@ -20,13 +20,13 @@ class DisplayName < ActiveRecord::Base
   represents :personal_name
 end
 
-class Confirmable < ActiveRecord::Base
-  extends :email
-end
-
 class Email < ActiveRecord::Base
   extendable_by :confirmable
   validates_format_of :address, with: /@/
+end
+
+class Confirmable < ActiveRecord::Base
+  extends :email
 end
 
 def initialize_schema
